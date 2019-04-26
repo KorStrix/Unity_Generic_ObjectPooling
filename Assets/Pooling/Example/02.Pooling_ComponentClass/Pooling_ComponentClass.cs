@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace StrixLibrary_Example
 {
-    public class Pooling_Transforms : MonoBehaviour
+    public class Pooling_ComponentClass : MonoBehaviour
     {
         [SerializeField]
         private Transform _pTransMuzzle = null;
@@ -47,14 +47,16 @@ namespace StrixLibrary_Example
         {
             yield return new WaitForSeconds(3f);
 
-            CManagerPooling_Component<Transform>.instance.DoPush(pObjectDisableTarget);
+            pObjectDisableTarget.SetActive(false);
+            // CManagerPooling_Component<Transform>.instance.DoPush(pObjectDisableTarget);
         }
 
         IEnumerator CoAutoDisable_Rigidbody(GameObject pObjectDisableTarget)
         {
             yield return new WaitForSeconds(3f);
 
-            CManagerPooling_Component<Rigidbody>.instance.DoPush(pObjectDisableTarget);
+            pObjectDisableTarget.SetActive(false);
+            // CManagerPooling_Component<Rigidbody>.instance.DoPush(pObjectDisableTarget);
         }
     }
 

@@ -27,26 +27,16 @@ public class CManagerPooling_Component<Class_GetType> : CManagerPoolingBase<CMan
     /* public - [Do] Function
      * 외부 객체가 호출(For External class call)*/
 
-    public Class_GetType DoPop(Class_GetType pObjectCopyTarget, Vector3 vecPos, bool bAutoReturn_OnDisable = true)
+    public Class_GetType DoPop(Class_GetType pObjectCopyTarget, Vector3 vecPos)
     {
         Class_GetType pUnUsed = base.DoPop(pObjectCopyTarget);
-        CCompoEventTrigger_OnDisable pEventTrigger_AutoReturn = pUnUsed.GetComponent<CCompoEventTrigger_OnDisable>();
-        if (bAutoReturn_OnDisable)
-        {
-            pEventTrigger_AutoReturn.p_Event_OnDisable -= DoPush;
-            pEventTrigger_AutoReturn.p_Event_OnDisable += DoPush;
-        }
-        else
-            pEventTrigger_AutoReturn.p_Event_OnDisable -= DoPush;
-
         pUnUsed.transform.position = vecPos;
         return pUnUsed;
     }
 
-
-    public Class_GetType DoPop(GameObject pObjectCopyTarget, bool bAutoReturn_OnDisable = true)
+    public Class_GetType DoPop(GameObject pObjectCopyTarget)
     {
-        return DoPop(pObjectCopyTarget.GetComponent<Class_GetType>(), Vector3.zero, bAutoReturn_OnDisable);
+        return DoPop(pObjectCopyTarget.GetComponent<Class_GetType>(), Vector3.zero);
     }
 
     public override void DoDestroyAll()
@@ -87,6 +77,8 @@ public class CManagerPooling_Component<Class_GetType> : CManagerPoolingBase<CMan
     {
         if(pClassType != null)
             pClassType.gameObject.SetActive(true);
+
+        OnPopComponent(pClassType);
     }
 
     protected override void OnPushObject(Class_GetType pClassType)
@@ -101,6 +93,16 @@ public class CManagerPooling_Component<Class_GetType> : CManagerPoolingBase<CMan
     // ========================================================================== //
 
     #region Private
+
+    private void OnPopComponent(Class_GetType pUnUsed)
+    {
+        CCompoEventTrigger_OnDisable pEventTrigger_AutoReturn = pUnUsed.GetComponent<CCompoEventTrigger_OnDisable>();
+        if (pEventTrigger_AutoReturn != null)
+        {
+            pEventTrigger_AutoReturn.p_Event_OnDisable -= DoPush;
+            pEventTrigger_AutoReturn.p_Event_OnDisable += DoPush;
+        }
+    }
 
     #endregion Private
 }
