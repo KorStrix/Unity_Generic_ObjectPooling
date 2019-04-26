@@ -10,7 +10,6 @@ namespace StrixLibrary_Example
         private Transform _pTransMuzzle = null;
         private CManagerPooling_InResources<Pooling_BulletTest.ProjectileModel, Pooling_BulletTest> _pManagerPool_Bullet;
 
-        // Use this for initialization
         void Start()
         {
             _pManagerPool_Bullet = CManagerPooling_InResources<Pooling_BulletTest.ProjectileModel, Pooling_BulletTest>.instance;
@@ -31,7 +30,6 @@ namespace StrixLibrary_Example
             Debug.Log(string.Format("총알 생성 Key : {0} Object Name : {1}", arg1, arg2.name));
         }
 
-        // Update is called once per frame
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))

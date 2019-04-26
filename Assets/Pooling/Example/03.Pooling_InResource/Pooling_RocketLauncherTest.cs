@@ -14,10 +14,8 @@ namespace StrixLibrary_Example
             CManagerPooling_InResources<string, Pooling_RocketTest>.instance.DoInitPoolingObject("PoolingTest_Rocket");
         }
 
-        // Update is called once per frame
         void Update()
         {
-
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 Pooling_RocketTest pRocket = CManagerPooling_InResources<string, Pooling_RocketTest>.instance.DoPop("Blue");

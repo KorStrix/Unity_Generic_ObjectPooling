@@ -23,24 +23,34 @@ namespace StrixLibrary_Example
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                Transform pTransform = CManagerPooling_Component<Transform>.instance.DoPop(pTransform_Blue);
-                Rigidbody pRigidbody = pTransform.GetComponent<Rigidbody>();
-
-                pTransform.position = _pTransMuzzle.transform.position;
-                pRigidbody.AddForce(new Vector3(0, 10f, 0), ForceMode.VelocityChange);
-
-                StartCoroutine(CoAutoDisable_Transform(pRigidbody.gameObject));
+                Pop_TransformBlue();
             }
 
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-                Rigidbody pRigidbody = CManagerPooling_Component<Rigidbody>.instance.DoPop(pRigidbody_Red);
-
-                pRigidbody.transform.position = _pTransMuzzle.transform.position;
-                pRigidbody.AddForce(new Vector3(0, 10f, 0), ForceMode.VelocityChange);
-
-                StartCoroutine(CoAutoDisable_Rigidbody(pRigidbody.gameObject));
+                Pop_RigidbodyRed();
             }
+        }
+
+        private void Pop_RigidbodyRed()
+        {
+            Rigidbody pRigidbody = CManagerPooling_Component<Rigidbody>.instance.DoPop(pRigidbody_Red);
+
+            pRigidbody.transform.position = _pTransMuzzle.transform.position;
+            pRigidbody.AddForce(new Vector3(0, 10f, 0), ForceMode.VelocityChange);
+
+            StartCoroutine(CoAutoDisable_Rigidbody(pRigidbody.gameObject));
+        }
+
+        private void Pop_TransformBlue()
+        {
+            Transform pTransform = CManagerPooling_Component<Transform>.instance.DoPop(pTransform_Blue);
+            Rigidbody pRigidbody = pTransform.GetComponent<Rigidbody>();
+
+            pTransform.position = _pTransMuzzle.transform.position;
+            pRigidbody.AddForce(new Vector3(0, 10f, 0), ForceMode.VelocityChange);
+
+            StartCoroutine(CoAutoDisable_Transform(pRigidbody.gameObject));
         }
 
         IEnumerator CoAutoDisable_Transform(GameObject pObjectDisableTarget)

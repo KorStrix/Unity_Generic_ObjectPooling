@@ -23,7 +23,6 @@ namespace StrixLibrary_Example
             Invoke("DisableObject", 1f);
         }
 
-        // Update is called once per frame
         void Update()
         {
             transform.Translate(0, 0, _fSpeed * Time.deltaTime, Space.Self);
