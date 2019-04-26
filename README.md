@@ -13,13 +13,15 @@
 
 Test 코드로 인하여 ``Assembly Defintion``을 사용했습니다.
 
+![](https://github.com/KorStrix/Unity_ObjectPooling/blob/master/Images_ForGitHub/RequireSetting.png?raw=true)
+
 ## 기능들
 크게 3가지 풀링 매니져가 존재하며, 각각 예제가 있습니다.
 
 #### 공통기능
 - 하이어라키 윈도우에 현재 생성된 오브젝트와 사용 현황이 표기됩니다.
 - 미리 오브젝트를 생성해놓을 수 있습니다.
-- 풀링 매니져에 리턴이 되야만 사용 요청 때 풀링이 진행됩니다.
+- **풀링 매니져에 리턴이 되야만 사용 요청 때 풀링이 진행됩니다.**
   - 모든 사용한 오브젝트를 한번에 풀링 매니져에 리턴할 수 있습니다.
 
 #### 1. 아무 클래스를 상속받지 않은 클래스에 대한 풀링. [(예제 링크)](https://github.com/KorStrix/Unity_ObjectPooling/tree/master/Assets/Pooling/Example/01.Pooling_NormalClass)
