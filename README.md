@@ -4,12 +4,14 @@
 
 유니티에서 사용하는 오브젝트 풀링 코드입니다.
 
-Test 코드로 인하여 Assembly Defintion 사용했습니다.
-
+## 주의사항
 유니티 `2017 ~ 2018버젼까지 동작 확인`하였으며,
 
 **유니티 5버젼 이하는 Assembly Definition을 지원하지 않아 정상동작하지 않을 수 있습니다.**
 
+**이 코드를 사용하시려면 Player Setting의 Scripting Runtime Version을 .NET 4.6으로 올리셔야 합니다.**
+
+Test 코드로 인하여 ``Assembly Defintion``을 사용했습니다.
 
 ## 기능들
 크게 3가지 풀링 매니져가 존재하며, 각각 예제가 있습니다.
