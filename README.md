@@ -1,4 +1,4 @@
-# Unity-ObjectPooling
+# Unity-Generic-ObjectPooling
 
 ![](https://github.com/KorStrix/Unity_ObjectPooling/blob/master/Images_ForGitHub/Preview.gif?raw=true)
 
